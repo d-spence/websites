@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #333;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-size: 45px;
+  font-weight: 300;
+  transition: all 0.3s;
+}
+
+h2 span {
+  font-size: 30px;
+}
+
+p {
+  font-size: 20px;
+  margin: 10px;
+  transition: all 0.3s;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  height: 100vh;
+}
+
+.grid-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.grid-container:hover > h2 {
+  opacity: 0;
+}
+
+.grid-container:hover > p {
+  transform: scale(1.25) translateY(-90%);
+  letter-spacing: 2px;
+}
+
+.grid-container:nth-of-type(1),
+.grid-container:nth-of-type(6),
+.grid-container:nth-of-type(9),
+.grid-container:nth-of-type(10) {
+  grid-column: span 2;
+}
+
+.grid-container > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  transition: all 0.5s ease-in;
+  z-index: -1;
+}
+
+.bg1 {
+  background: url('./img/bg1.jpg');
+}
+
+.grid-container:hover .bg1 {
+  filter: brightness(70%) grayscale();
+}
+
+.bg2 {
+  background: url('./img/bg2.jpg');
+}
+
+.grid-container:hover .bg2 {
+  filter: brightness(120%) grayscale();
+}
+
+.grid-container > .bg2 ~ * {
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
